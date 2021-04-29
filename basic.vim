@@ -49,7 +49,5 @@ set wildmode=longest:full,list:full
 set whichwrap+=<,>,h,l
 set wrap
 
-map <C-n> :NERDTreeToggle<CR>
-
 let $LANG='en'
 let mapleader = ","
