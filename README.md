@@ -1,26 +1,36 @@
 # vim
 
-## 使用方式
+## Usage
+
+### Install
 
 ```bash
-# 安装
 git clone git@github.com:lijinglin3/vim.git ~/.vim
 cd ~/.vim
 git submodule update --init --recursive
+```
 
-# 初始化 YouCompleteMe
+### Init YouCompleteMe
+
+```bash
 cd ~/.vim/pack/plugins/start/YouCompleteMe
 python3 install.py --go-completer
 ```
 
-## 更新插件
+### Compatible with NeoVim
+
+```bash
+cd ~/.config && ln -sf ~/.vim nvim && cd -
+```
+
+### Update Plugins
 
 ```bash
 git pull --recurse-submodules
 git submodule update --remote
 ```
 
-## 已安装插件
+## Installed Plugins
 
 - [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe)
 - [ale](https://github.com/dense-analysis/ale)
