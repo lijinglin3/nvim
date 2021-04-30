@@ -53,6 +53,7 @@ set softtabstop=4 " Tab 转为多少个空格
 " set spell spelllang=en_us " 打开英语单词的拼写检查
 set t_Co=256 " 启用 256 色
 set tabstop=4 " 按下 Tab 键时 Vim 显示的空格数
+set termencoding=utf-8
 set termguicolors " 开启 24bit 颜色
 set textwidth=80 " 设置行宽，即一行显示多少个字符
 set title
@@ -66,7 +67,6 @@ set whichwrap+=<,>,h,l
 set wrap " 自动折行，即太长的行分成几行显示
 set wrapmargin=2 " 指定折行处与编辑窗口的右边缘之间空出的字符数
 
-let $LANG='en_US'
 let mapleader = ","
 
 map <F12> :terminal<CR>
