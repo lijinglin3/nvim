@@ -2,7 +2,7 @@ colorscheme gruvbox " 设置主题
 filetype plugin indent on " 开启文件类型检查，并且载入与该类型对应的缩进规则
 syntax enable " 语法高亮
 set ai "Auto indent
-set autochdir " 自动切换工作目录。这主要用在一个 Vim 会话之中打开多个文件的情况，默认的工作目录是打开的第一个文件的目录。该配置可以将工作目录自动切换到，正在编辑的文件的目录
+" set autochdir " 自动切换工作目录。这主要用在一个 Vim 会话之中打开多个文件的情况，默认的工作目录是打开的第一个文件的目录。该配置可以将工作目录自动切换到，正在编辑的文件的目录
 set autoindent " 自动缩进
 set autoread " 打开文件监视。如果在编辑过程中文件发生外部改变，就会发出提示
 set background=dark
