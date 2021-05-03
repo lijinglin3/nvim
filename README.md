@@ -36,10 +36,10 @@ git submodule update --remote
 
 - [ale](https://github.com/dense-analysis/ale)
 - [coc.nvim](https://github.com/neoclide/coc.nvim)
+- [fzf.vim](https://github.com/junegunn/fzf.vim)
 - [gruvbox](https://github.com/morhetz/gruvbox)
 - [LeaderF](https://github.com/Yggdroot/LeaderF)
 - [nerdtree](https://github.com/preservim/nerdtree)
-- [syntastic](https://github.com/vim-syntastic/syntastic)
 - [vim-airline](https://github.com/vim-airline/vim-airline)
 - [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
 - [vim-go](https://github.com/fatih/vim-go)

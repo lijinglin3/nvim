@@ -3,12 +3,6 @@ let g:gruvbox_contrast_dark = "hard"
 let g:gruvbox_improved_strings = 1
 let g:gruvbox_improved_warnings = 1
 
-" syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
 " LeaderF
 let g:Lf_ShortcutF = '<C-P>'
 let g:Lf_CommandMap = {'<C-K>': ['<Up>'], '<C-J>': ['<Down>']}
@@ -16,12 +10,12 @@ let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
 let g:Lf_ShowDevIcons = 0
 
-" ctrlp
-let g:ctrlp_mruf_max = 10000
-let g:ctrlp_mruf_relative = 1
-let g:ctrlp_by_filename = 1
-let g:ctrlp_regexp = 1
-let g:ctrlp_match_window = 'min:1,max:99'
+" fzf
+if has('mac')
+    set rtp+=/opt/homebrew/opt/fzf,/usr/local/opt/fzf
+elseif has('unix')
+    source /usr/share/doc/fzf/examples/fzf.vim
+endif
 
 " nerdtree
 autocmd StdinReadPre * let s:std_in = 1
