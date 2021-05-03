@@ -9,17 +9,24 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" LeaderF
+let g:Lf_ShortcutF = '<C-P>'
+let g:Lf_CommandMap = {'<C-K>': ['<Up>'], '<C-J>': ['<Down>']}
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_PreviewInPopup = 1
+let g:Lf_ShowDevIcons = 0
+
 " ctrlp
 let g:ctrlp_mruf_max = 10000
 let g:ctrlp_mruf_relative = 1
 let g:ctrlp_by_filename = 1
 let g:ctrlp_regexp = 1
+let g:ctrlp_match_window = 'min:1,max:99'
 
 " nerdtree
 autocmd StdinReadPre * let s:std_in = 1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 autocmd BufEnter * lcd %:p:h
-autocmd BufWinEnter * silent NERDTreeMirror
 
 nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
@@ -46,4 +53,3 @@ let g:go_highlight_extra_types = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_generate_tags = 1
 let g:godef_split = 2
-

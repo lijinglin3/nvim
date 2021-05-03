@@ -57,7 +57,7 @@ set termencoding=utf-8
 set termguicolors " 开启 24bit 颜色
 set textwidth=80 " 设置行宽，即一行显示多少个字符
 set title
-set undodir=~/.vim/tmp//
+set undodir=~/.cache/vim//
 set undofile " 保留撤销历史
 set visualbell " 出错时，发出视觉提示，通常是屏幕闪烁
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
