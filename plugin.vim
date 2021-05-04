@@ -29,10 +29,10 @@ let NERDTreeShowHidden = 1
 let g:NERDSpaceDelims = 1
 
 " vim-go
-au FileType go nmap <C-S-d> :GoDeclsDir<CR>
-au FileType go nmap <C-d> :GoDecls<CR>
-au FileType go nmap <C-i> :GoImplements<CR>
 au FileType go nmap <C-b> :GoReferrers<CR>
+au FileType go nmap <C-d> :GoDecls<CR>
+au FileType go nmap <C-f> :GoFmt<CR>
+au FileType go nmap <C-i> :GoImplements<CR>
 
 let g:go_fmt_command = "goimports" " 格式化将默认的 gofmt 替换
 let g:go_list_type = "quickfix"

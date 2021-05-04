@@ -25,11 +25,14 @@ set langmenu=en_US.UTF-8
 set laststatus=2 " 是否显示状态栏。0 表示不显示，1 表示只在多窗口时显示，2 表示显示
 set lazyredraw " Don't redraw while executing macros (good performance config)
 set linebreak " 只有遇到指定的符号（比如空格、连词号和其他标点符号），才发生折行
+set list
+set listchars=eol:$,tab:>-,space:·,trail:~,nbsp:×,extends:>,precedes:<
 set magic " For regular expressions turn magic on
 set mouse=a " 支持使用鼠标
 set nobackup " 不创建备份文件。默认情况下，文件保存时，会额外创建一个备份文件，它的文件名是在原文件名的末尾，再添加一个波浪号（〜）
 set nocompatible " 不与 vi 兼容
 set noerrorbells " 出错时，不要发出响声
+set noexpandtab
 set nofoldenable " 打开文件时不折叠
 set noswapfile " 不创建交换文件。交换文件主要用于系统崩溃时恢复文件，文件名的开头是 . 结尾是 .swp
 set nowb
@@ -67,16 +70,15 @@ set whichwrap+=<,>,h,l
 set wrap " 自动折行，即太长的行分成几行显示
 set wrapmargin=2 " 指定折行处与编辑窗口的右边缘之间空出的字符数
 
-let mapleader = ","
+let mapleader = "\<Space>"
 
-map <F12> :terminal<CR>
-map <S-Right> :tabn<CR>
-map <S-Left>  :tabp<CR>
-
-nmap <leader>w :w!<CR>
-
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-noremap <C-h> <C-w>h
-
+nmap		<leader>w	:w!<CR>
+nmap		<leader>q	:q!<CR>
+map			<F12>		:terminal<CR>
+map			<S-Right>	:tabn<CR>
+map			<S-Left>	:tabp<CR>
+noremap		<C-j>		<C-w>j
+noremap		<C-k>		<C-w>k
+noremap		<C-l>		<C-w>l
+noremap		<C-h>		<C-w>h
+tnoremap	<Esc>		<C-\><C-n>:q!<CR>
