@@ -25,3 +25,6 @@
 [submodule "pack/plugins/start/fzf"]
 	path = pack/plugins/start/fzf
 	url = https://github.com/junegunn/fzf.vim
+[submodule "pack/plugins/opt/coc-clangd"]
+	path = pack/plugins/opt/coc-clangd
+	url = https://github.com/clangd/coc-clangd
