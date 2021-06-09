@@ -29,6 +29,8 @@ let NERDTreeShowHidden = 1
 let g:NERDSpaceDelims = 1
 
 " vim-go
+autocmd Filetype go packadd vim-go
+
 au FileType go nmap <C-b> :GoReferrers<CR>
 au FileType go nmap <C-d> :GoDecls<CR>
 au FileType go nmap <C-f> :GoFmt<CR>
@@ -49,4 +51,4 @@ let g:go_highlight_generate_tags = 1
 let g:godef_split = 2
 
 " coc-clangd
-autocmd BufReadPre *.c,*.cc,*.cpp,*.c++ packadd coc-clangd
+autocmd Filetype c,cpp packadd coc-clangd

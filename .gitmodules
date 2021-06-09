@@ -1,6 +1,3 @@
-[submodule "pack/plugins/start/vim-go"]
-	path = pack/plugins/start/vim-go
-	url = https://github.com/fatih/vim-go
 [submodule "pack/plugins/start/nerdtree"]
 	path = pack/plugins/start/nerdtree
 	url = https://github.com/preservim/nerdtree
@@ -28,3 +25,6 @@
 [submodule "pack/plugins/opt/coc-clangd"]
 	path = pack/plugins/opt/coc-clangd
 	url = https://github.com/clangd/coc-clangd
+[submodule "pack/plugins/opt/vim-go"]
+	path = pack/plugins/opt/vim-go
+	url = https://github.com/fatih/vim-go
