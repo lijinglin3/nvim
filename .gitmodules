@@ -28,3 +28,6 @@
 [submodule "pack/plugins/opt/vim-go"]
 	path = pack/plugins/opt/vim-go
 	url = https://github.com/fatih/vim-go
+[submodule "pack/plugins/start/rainbow_csv"]
+	path = pack/plugins/start/rainbow_csv
+	url = https://github.com/mechatroner/rainbow_csv
