@@ -23,13 +23,13 @@ vim +LeaderfInstallCExtension             # init LeaderF
 vim '+packadd vim-go' +GoInstallBinaries  # init vim-go
 ```
 
-## Update Plugins
+## Update
 
 ```bash
-git pull --recurse-submodules && git submodule update --remote
+git pull --recurse-submodules
 ```
 
-## Installed Plugins
+## Plugins
 
 - start
   - [LeaderF](https://github.com/Yggdroot/LeaderF)
