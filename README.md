@@ -2,25 +2,25 @@
 
 ## Install
 
-vim
-
-```bash
-git clone git@github.com:lijinglin3/vim.git ~/.vim
-```
-
 neovim
 
 ```bash
 pip install --upgrade pynvim
-git clone git@github.com:lijinglin3/vim.git ~/.config/nvim
+git clone https://github.com/lijinglin3/vim ~/.config/nvim
+```
+
+vim
+
+```bash
+git clone https://github.com/lijinglin3/vim ~/.vim
 ```
 
 ## Init
 
 ```bash
-git submodule update --init --recursive   # init plugins
-vim +LeaderfInstallCExtension             # init LeaderF
-vim '+packadd vim-go' +GoInstallBinaries  # init vim-go
+git submodule update --init --recursive             # init plugins
+nvim '+packadd LeaderF' +LeaderfInstallCExtension   # init LeaderF
+nvim '+packadd vim-go' +GoInstallBinaries           # init vim-go
 ```
 
 ## Update
