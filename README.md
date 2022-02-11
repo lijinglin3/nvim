@@ -27,6 +27,7 @@ nvim '+packadd vim-go' +GoInstallBinaries           # init vim-go
 
 ```bash
 git pull --recurse-submodules
+git submodule update --remote
 ```
 
 ## Plugins
