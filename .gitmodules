@@ -19,6 +19,7 @@
 [submodule "pack/plugins/start/coc"]
 	path = pack/plugins/start/coc
 	url = https://github.com/neoclide/coc.nvim
+	branch = release
 [submodule "pack/plugins/start/fzf"]
 	path = pack/plugins/start/fzf
 	url = https://github.com/junegunn/fzf.vim
