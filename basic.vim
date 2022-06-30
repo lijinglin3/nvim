@@ -28,7 +28,7 @@ set linebreak " 只有遇到指定的符号（比如空格、连词号和其他�
 set list
 set listchars=eol:$,tab:>-,space:·,trail:~,nbsp:×,extends:>,precedes:<
 set magic " For regular expressions turn magic on
-set mouse=a " 支持使用鼠标
+set mouse-=a " 禁止使用鼠标
 set nobackup " 不创建备份文件。默认情况下，文件保存时，会额外创建一个备份文件，它的文件名是在原文件名的末尾，再添加一个波浪号（〜）
 set nocompatible " 不与 vi 兼容
 set noerrorbells " 出错时，不要发出响声
@@ -72,13 +72,15 @@ set wrapmargin=2 " 指定折行处与编辑窗口的右边缘之间空出的字�
 
 let mapleader = "\<Space>"
 
-nmap		<leader>w	:w!<CR>
-nmap		<leader>q	:q!<CR>
-map			<F12>		:terminal<CR>
-map			<S-Right>	:tabn<CR>
-map			<S-Left>	:tabp<CR>
-noremap		<C-j>		<C-w>j
-noremap		<C-k>		<C-w>k
-noremap		<C-l>		<C-w>l
-noremap		<C-h>		<C-w>h
-tnoremap	<Esc>		<C-\><C-n>:q!<CR>
+nmap	<leader>w	:w!<CR>
+nmap	<leader>q	:q!<CR>
+noremap		<F12>	:terminal<CR>
+nnoremap	tt	:tabnew<CR>
+nnoremap	tc	:tabclose<CR>
+nnoremap	tn	:tabn<CR>
+nnoremap	tp	:tabp<CR>
+nnoremap	wj	<C-w>j
+nnoremap	wk	<C-w>k
+nnoremap	wl	<C-w>l
+nnoremap	wh	<C-w>h
+tnoremap	<Esc>	<C-\><C-n>:q!<CR>
