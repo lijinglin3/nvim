@@ -37,6 +37,7 @@ git submodule update --remote
 - [vim-airline-theme](https://github.com/vim-airline/vim-airline-theme)
 - [nerdtree](https://github.com/preservim/nerdtree)
 - [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)
+- [vim-floaterm](https://github.com/voldikss/vim-floaterm)
 - [LeaderF](https://github.com/Yggdroot/LeaderF)
 - [fzf.vim](https://github.com/junegunn/fzf.vim)
 - [ale](https://github.com/dense-analysis/ale)

@@ -13,6 +13,9 @@
 [submodule "Xuyuanp/nerdtree-git-plugin"]
 	path = pack/plugins/start/nerdtree-git-plugin
 	url = https://github.com/Xuyuanp/nerdtree-git-plugin
+[submodule "voldikss/vim-floaterm"]
+	path = pack/plugins/start/vim-floaterm
+	url = https://github.com/voldikss/vim-floaterm
 [submodule "Yggdroot/LeaderF"]
 	path = pack/plugins/start/LeaderF
 	url = https://github.com/Yggdroot/LeaderF

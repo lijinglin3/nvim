@@ -60,7 +60,6 @@ set termencoding=utf-8
 set termguicolors " 开启 24bit 颜色
 set textwidth=80 " 设置行宽，即一行显示多少个字符
 set title
-set undodir=~/.cache/vim//
 set undofile " 保留撤销历史
 set visualbell " 出错时，发出视觉提示，通常是屏幕闪烁
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
@@ -70,17 +69,33 @@ set whichwrap+=<,>,h,l
 set wrap " 自动折行，即太长的行分成几行显示
 set wrapmargin=2 " 指定折行处与编辑窗口的右边缘之间空出的字符数
 
+if has('nvim')
+    set undodir=~/.cache/nvim//
+else
+    set undodir=~/.cache/vim//
+endif
+if has('mac')
+    set rtp+=/opt/homebrew/opt/fzf,/usr/local/opt/fzf
+endif
+if has('unix')
+    if filereadable('/usr/share/doc/fzf/examples/fzf.vim')
+        source /usr/share/doc/fzf/examples/fzf.vim
+    endif
+endif
+
 let mapleader = "\<Space>"
 
-nmap	<leader>w	:w!<CR>
-nmap	<leader>q	:q!<CR>
-noremap		<F12>	:terminal<CR>
-nnoremap	tt	:tabnew<CR>
-nnoremap	tc	:tabclose<CR>
-nnoremap	tn	:tabn<CR>
-nnoremap	tp	:tabp<CR>
-nnoremap	wj	<C-w>j
-nnoremap	wk	<C-w>k
-nnoremap	wl	<C-w>l
-nnoremap	wh	<C-w>h
-tnoremap	<Esc>	<C-\><C-n>:q!<CR>
+nnoremap <leader>w :w!<CR>
+nnoremap <leader>q :q!<CR>
+nnoremap <leader>t :tabnew<CR>
+nnoremap <leader>c :tabclose<CR>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+inoremap <C-d> <DELETE>
+tnoremap <ESC> <C-\><C-n>
