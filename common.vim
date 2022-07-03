@@ -60,6 +60,7 @@ set termencoding=utf-8
 set termguicolors " 开启 24bit 颜色
 set textwidth=80 " 设置行宽，即一行显示多少个字符
 set title
+set undodir=~/.cache/vim//
 set undofile " 保留撤销历史
 set visualbell " 出错时，发出视觉提示，通常是屏幕闪烁
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
@@ -69,11 +70,6 @@ set whichwrap+=<,>,h,l
 set wrap " 自动折行，即太长的行分成几行显示
 set wrapmargin=2 " 指定折行处与编辑窗口的右边缘之间空出的字符数
 
-if has('nvim')
-    set undodir=~/.cache/nvim//
-else
-    set undodir=~/.cache/vim//
-endif
 if has('mac')
     set rtp+=/opt/homebrew/opt/fzf,/usr/local/opt/fzf
 endif
@@ -99,3 +95,49 @@ inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 inoremap <C-d> <DELETE>
 tnoremap <ESC> <C-\><C-n>
+
+" gruvbox
+let g:gruvbox_improved_strings = 1
+let g:gruvbox_improved_warnings = 1
+
+" vim-airline
+let g:airline_theme = "gruvbox"
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
+" LeaderF
+let g:Lf_ShortcutF = '<leader>f'
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_PreviewInPopup = 1
+let g:Lf_ShowDevIcons = 0
+
+" floatterm
+let g:floaterm_wintype = 'split'
+let g:floaterm_position = 'belowright'
+let g:floaterm_height = 0.3
+let g:floaterm_keymap_toggle = '<F12>'
+
+" vim-go
+au FileType go nmap gR :GoRename<CR>
+au FileType go nmap gr :GoReferrers<CR>
+au FileType go nmap gp :GoDefPop<CR>
+au FileType go nmap gf :GoFmt<CR>
+au FileType go nmap gi :GoImplements<CR>
+au FileType go nmap gl :GoDecls<CR>
+au FileType go nmap gL :GoDeclsDir<CR>
+
+let g:go_fmt_command = "goimports" " 格式化将默认的 gofmt 替换
+let g:go_autodetect_gopath = 1
+let g:go_version_warning = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+let g:godef_split = 2
