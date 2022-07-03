@@ -1,4 +1,4 @@
-colorscheme gruvbox " 设置主题
+silent colorscheme gruvbox " 尝试设置主题
 filetype plugin indent on " 开启文件类型检查，并且载入与该类型对应的缩进规则
 syntax enable " 语法高亮
 set ai "Auto indent
@@ -60,7 +60,7 @@ set termencoding=utf-8
 set termguicolors " 开启 24bit 颜色
 set textwidth=80 " 设置行宽，即一行显示多少个字符
 set title
-set undodir=~/.cache/vim//
+set undodir=~/.cache/nvim//
 set undofile " 保留撤销历史
 set visualbell " 出错时，发出视觉提示，通常是屏幕闪烁
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
@@ -126,7 +126,7 @@ au FileType go nmap gi :GoImplements<CR>
 au FileType go nmap gl :GoDecls<CR>
 au FileType go nmap gL :GoDeclsDir<CR>
 
-let g:go_fmt_command = "goimports" " 格式化将默认的 gofmt 替换
+let g:go_fmt_command = "goimports"
 let g:go_autodetect_gopath = 1
 let g:go_version_warning = 1
 let g:go_highlight_methods = 1
