@@ -20,7 +20,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 if !bootstrap
-  source ~/.config/nvim/common.vim
-  source ~/.config/nvim/plugins.vim
-  set undodir=~/.cache/vim//
+  source ~/.config/nvim/configs/common-basic.vim
+  source ~/.config/nvim/configs/common-plugins.vim
+  source ~/.config/nvim/configs/special-vim.vim
 endif
