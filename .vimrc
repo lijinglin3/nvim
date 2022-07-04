@@ -16,6 +16,7 @@ Plug 'preservim/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'voldikss/vim-floaterm'
 Plug 'Yggdroot/LeaderF', {'do': ':LeaderfInstallCExtension'}
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
