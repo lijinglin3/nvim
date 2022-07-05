@@ -1,3 +1,4 @@
+silent colorscheme gruvbox
 set undodir=~/.cache/vim//
 
 " gruvbox

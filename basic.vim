@@ -1,4 +1,3 @@
-silent colorscheme gruvbox " 尝试设置主题
 filetype plugin indent on " 开启文件类型检查，并且载入与该类型对应的缩进规则
 syntax enable " 语法高亮
 set ai "Auto indent
