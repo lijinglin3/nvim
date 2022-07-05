@@ -11,11 +11,7 @@ require('plugins')
 if bootstrap then
   require('packer').sync()
 else
-  vim.cmd([[
-    source ~/.config/nvim/configs/common-basic.vim
-    source ~/.config/nvim/configs/common-plugins.vim
-    source ~/.config/nvim/configs/special-neovim.vim
-  ]])
+  vim.cmd([[source ~/.config/nvim/basic.vim]])
 
   local status, _ = pcall(require, 'packer_compiled')
   if not status then

@@ -21,7 +21,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 if !bootstrap
-  source ~/.config/nvim/configs/common-basic.vim
-  source ~/.config/nvim/configs/common-plugins.vim
-  source ~/.config/nvim/configs/special-vim.vim
+  source ~/.config/nvim/basic.vim
+  source ~/.config/nvim/plugins.vim
 endif
