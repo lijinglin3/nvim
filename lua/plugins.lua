@@ -48,7 +48,7 @@ return require('packer').startup({
 			requires = {'kyazdani42/nvim-web-devicons', 'folke/lsp-colors.nvim'}
 		}
 		use {
-			'ray-x/go.nvim', config = [[require('configs.go')]], run = ':GoUpdateBinaries'
+			'ray-x/go.nvim', config = [[require('configs.go')]]
 		}
 		use {
 			'wbthomason/packer.nvim'
