@@ -69,13 +69,19 @@ set whichwrap+=<,>,h,l
 set wrap " 自动折行，即太长的行分成几行显示
 set wrapmargin=2 " 指定折行处与编辑窗口的右边缘之间空出的字符数
 
+augroup remember_folds
+	autocmd!
+	autocmd BufWinLeave *.* mkview
+	autocmd BufWinEnter *.* silent! loadview
+augroup END
+
 if has('mac')
-    set rtp+=/opt/homebrew/opt/fzf,/usr/local/opt/fzf
+	set rtp+=/opt/homebrew/opt/fzf,/usr/local/opt/fzf
 endif
 if has('unix')
-    if filereadable('/usr/share/doc/fzf/examples/fzf.vim')
-        source /usr/share/doc/fzf/examples/fzf.vim
-    endif
+	if filereadable('/usr/share/doc/fzf/examples/fzf.vim')
+		source /usr/share/doc/fzf/examples/fzf.vim
+	endif
 endif
 
 let mapleader = "\<Space>"
