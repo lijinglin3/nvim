@@ -44,6 +44,10 @@ return require('packer').startup({
 			'nvim-treesitter/nvim-treesitter', config = [[require('configs.treesitter')]]
 		}
 		use {
+			'folke/trouble.nvim', config = [[require('configs.trouble')]],
+			requires = {'kyazdani42/nvim-web-devicons', 'folke/lsp-colors.nvim'}
+		}
+		use {
 			'ray-x/go.nvim', config = [[require('configs.go')]], run = ':GoUpdateBinaries'
 		}
 		use {

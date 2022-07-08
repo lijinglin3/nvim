@@ -13,6 +13,7 @@ set encoding=utf-8 " 使用 utf-8 编码
 set expandtab " 由于 Tab 键在不同的编辑器缩进不一致，该设置自动将 Tab 转为空格
 set ffs=unix,dos,mac " Use Unix as the standard file type
 set foldcolumn=1 " Add a bit extra margin to the left
+set foldlevel=99
 set foldmethod=syntax
 set foldnestmax=32
 set hid " A buffer becomes hidden when it is abandoned
@@ -99,4 +100,3 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 inoremap <C-d> <DELETE>
-tnoremap <ESC> <C-\><C-n>
