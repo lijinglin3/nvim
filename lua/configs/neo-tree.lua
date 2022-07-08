@@ -5,8 +5,7 @@ require('neo-tree').setup({
 	}
 })
 
-vim.cmd([[
-	nnoremap tt :NeoTreeShowToggle<CR>
-	nnoremap tr :NeoTreeReveal<CR>
-	nnoremap tf :NeoTreeFocus<CR>
-]])
+local opts = {noremap = true}
+vim.api.nvim_set_keymap("n", "tt", ":NeoTreeShowToggle<CR>", opts)
+vim.api.nvim_set_keymap("n", "tr", ":NeoTreeReveal<CR>", opts)
+vim.api.nvim_set_keymap("n", "tf", ":NeoTreeFocus<CR>", opts)
