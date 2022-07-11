@@ -26,6 +26,7 @@ return require('packer').startup({
 			requires = {
 				'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'nvim-treesitter/nvim-treesitter',
 				'nvim-telescope/telescope-frecency.nvim', 'tami5/sqlite.lua',
+				'nvim-telescope/telescope-dap.nvim', 'mfussenegger/nvim-dap',
 				'nvim-telescope/telescope-project.nvim', 'nvim-telescope/telescope-file-browser.nvim'
 			}
 		}
@@ -48,7 +49,8 @@ return require('packer').startup({
 			requires = {'kyazdani42/nvim-web-devicons', 'folke/lsp-colors.nvim'}
 		}
 		use {
-			'ray-x/go.nvim', config = [[require('configs.go')]]
+			'ray-x/go.nvim', config = [[require('configs.go')]],
+			requires = {{'ray-x/guihua.lua', run = 'cd lua/fzy && make'}, 'rcarriga/nvim-dap-ui', 'mfussenegger/nvim-dap'}
 		}
 		use {
 			'wbthomason/packer.nvim'

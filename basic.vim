@@ -48,7 +48,7 @@ set showmatch " 显示括号匹配
 set showmode " 在底部显示当前处于命令模式还是插入模式
 set si "Smart indent
 set sidescrolloff=15 " 水平滚动时，光标距离行首或行尾的位置（单位：字符）
-set smartcase " 如果同时打开了ignorecase，那么对于只有一个大写字母的搜索词，将大小写敏感；其他情况都是大小写不敏感
+" set smartcase " 如果同时打开了ignorecase，那么对于只有一个大写字母的搜索词，将大小写敏感；其他情况都是大小写不敏感
 set smartindent
 set smarttab
 set so=10
