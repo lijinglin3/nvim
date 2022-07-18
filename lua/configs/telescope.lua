@@ -17,11 +17,11 @@ require('telescope').setup({
 })
 
 local opts = {noremap = true}
+vim.api.nvim_set_keymap("n", "<leader><leader>", ":Telescope builtin<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>f", ":Telescope find_files<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>g", ":Telescope live_grep<CR>", opts)
-vim.api.nvim_set_keymap("n", "<leaser>b", ":Telescope buffers<CR>", opts)
-vim.api.nvim_set_keymap("n", "<leader>h", ":Telescope help_tags<CR>", opts)
-vim.api.nvim_set_keymap("n", "<leader>r", ":Telescope frecency<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>b", ":Telescope buffers<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>F", ":Telescope frecency<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>p", ":Telescope project<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>l", ":Telescope file_browser<CR>", opts)
 

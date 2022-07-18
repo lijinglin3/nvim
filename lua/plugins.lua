@@ -31,10 +31,6 @@ return require('packer').startup({
 			}
 		}
 		use {
-			'kevinhwang91/nvim-bqf', config = [[require('configs.bqf')]], ft = 'qf',
-			requires = 'nvim-treesitter/nvim-treesitter'
-		}
-		use {
 			'hrsh7th/nvim-cmp', config = [[require('configs.cmp')]],
 			requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-cmdline'}
 		}
