@@ -9,7 +9,7 @@ return require('packer').startup({
 		}
 		use {
 			'nvim-lualine/lualine.nvim', config = [[require('configs.lualine')]],
-			requires = 'kyazdani42/nvim-web-devicons'
+			requires = {'kyazdani42/nvim-web-devicons', 'stevearc/aerial.nvim'}
 		}
 		use {
 			"akinsho/toggleterm.nvim", config = [[require('configs.toggleterm')]]
@@ -23,7 +23,8 @@ return require('packer').startup({
 				'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'nvim-treesitter/nvim-treesitter',
 				'nvim-telescope/telescope-frecency.nvim', 'tami5/sqlite.lua',
 				'nvim-telescope/telescope-dap.nvim', 'mfussenegger/nvim-dap',
-				'nvim-telescope/telescope-project.nvim', 'nvim-telescope/telescope-file-browser.nvim'
+				'nvim-telescope/telescope-project.nvim', 'nvim-telescope/telescope-file-browser.nvim',
+				'stevearc/aerial.nvim',
 			}
 		}
 		use {
