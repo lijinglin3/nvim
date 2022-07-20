@@ -8,6 +8,14 @@ require('telescope').setup({
 				["<C-k>"] = require('telescope.actions').move_selection_previous,
 			}
 		}
+	},
+	pickers = {
+		find_files = {
+			find_command = {
+				'fd', '--type', 'file', '--type', 'symlink', '--strip-cwd-prefix', '--unrestricted',
+				'--exclude', '.git', '--ignore-file', '.fdignore',
+			}
+		}
 	}
 })
 
