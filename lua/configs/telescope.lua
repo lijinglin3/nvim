@@ -1,8 +1,3 @@
-require('telescope').load_extension("frecency")
-require('telescope').load_extension('project')
-require('telescope').load_extension('file_browser')
-require('telescope').load_extension('dap')
-
 require('telescope').setup({
 	defaults = {
 		sorting_strategy = "ascending",
@@ -15,6 +10,11 @@ require('telescope').setup({
 		}
 	}
 })
+
+require('telescope').load_extension("frecency")
+require('telescope').load_extension('project')
+require('telescope').load_extension('file_browser')
+require('telescope').load_extension('dap')
 
 local opts = {noremap = true}
 vim.api.nvim_set_keymap("n", "<leader><leader>", ":Telescope builtin<CR>", opts)

@@ -12,10 +12,6 @@ return require('packer').startup({
 			requires = 'kyazdani42/nvim-web-devicons'
 		}
 		use {
-			'akinsho/bufferline.nvim', config = [[require('configs.bufferline')]], tag = "v2.*",
-			requires = 'kyazdani42/nvim-web-devicons'
-		}
-		use {
 			"akinsho/toggleterm.nvim", config = [[require('configs.toggleterm')]]
 		}
 		use {
@@ -39,10 +35,6 @@ return require('packer').startup({
 		}
 		use {
 			'nvim-treesitter/nvim-treesitter', config = [[require('configs.treesitter')]]
-		}
-		use {
-			'folke/trouble.nvim', config = [[require('configs.trouble')]],
-			requires = {'kyazdani42/nvim-web-devicons', 'folke/lsp-colors.nvim'}
 		}
 		use {
 			'ray-x/go.nvim', config = [[require('configs.go')]],
