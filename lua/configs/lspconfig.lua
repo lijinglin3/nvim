@@ -16,7 +16,8 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "gt", builtin.lsp_type_definitions, opts)
 	vim.keymap.set("n", "gi", builtin.lsp_implementations, opts)
 	vim.keymap.set("n", "gr", builtin.lsp_references, opts)
-	vim.keymap.set("n", "ge", builtin.diagnostics, opts)
+	vim.keymap.set("n", "gE", builtin.diagnostics, opts)
+	vim.keymap.set("n", "ge", function() builtin.diagnostics({bufnr = 0}) end, opts)
 
 	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 end
