@@ -1,4 +1,3 @@
-require("aerial").setup()
 require('lualine').setup({
 	sections = {
 		lualine_a = {'mode'},

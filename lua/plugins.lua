@@ -4,15 +4,15 @@ return require('packer').startup({
 			'sainnhe/gruvbox-material', config = [[require('configs.gruvbox')]]
 		}
 		use {
-			'nvim-neo-tree/neo-tree.nvim', config = [[require('configs.neo-tree')]], branch = 'v2.x',
+			'nvim-neo-tree/neo-tree.nvim', config = [[require('configs.neo-tree')]],
 			requires = {'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'MunifTanjim/nui.nvim'}
 		}
 		use {
 			'nvim-lualine/lualine.nvim', config = [[require('configs.lualine')]],
-			requires = {'kyazdani42/nvim-web-devicons', 'stevearc/aerial.nvim'}
+			requires = 'kyazdani42/nvim-web-devicons',
 		}
 		use {
-			"akinsho/toggleterm.nvim", config = [[require('configs.toggleterm')]]
+			'akinsho/toggleterm.nvim', config = [[require('configs.toggleterm')]]
 		}
 		use {
 			'lewis6991/gitsigns.nvim', config = [[require('configs.gitsigns')]]
@@ -24,7 +24,7 @@ return require('packer').startup({
 				'nvim-telescope/telescope-frecency.nvim', 'tami5/sqlite.lua',
 				'nvim-telescope/telescope-dap.nvim', 'mfussenegger/nvim-dap',
 				'nvim-telescope/telescope-project.nvim', 'nvim-telescope/telescope-file-browser.nvim',
-				'stevearc/aerial.nvim',
+				{'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
 			}
 		}
 		use {
@@ -39,7 +39,7 @@ return require('packer').startup({
 		}
 		use {
 			'ray-x/go.nvim', config = [[require('configs.go')]],
-			requires = {{'ray-x/guihua.lua', run = 'cd lua/fzy && make'}, 'rcarriga/nvim-dap-ui', 'mfussenegger/nvim-dap'}
+			requires = {'rcarriga/nvim-dap-ui', 'mfussenegger/nvim-dap'}
 		}
 		use {
 			'wbthomason/packer.nvim'
