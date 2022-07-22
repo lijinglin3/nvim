@@ -24,7 +24,38 @@ end
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = false
 
-require('lspconfig').gopls.setup({on_attach = on_attach, capabilities = capabilities})
-require('lspconfig').clangd.setup({on_attach = on_attach})
-require('lspconfig').jsonls.setup({on_attach = on_attach})
-require('lspconfig').pyright.setup({on_attach = on_attach})
+require('lspconfig').gopls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		gopls = {
+			analyses = {
+				fieldalignment = true,
+				nilness = true,
+				shadow = true,
+				unusedparams = true,
+				unusedwrite = true,
+				useany = true,
+				unusedvariable = true,
+			},
+			allExperiments = true,
+			staticcheck = true,
+			gofumpt = true,
+		},
+	},
+})
+
+require('lspconfig').clangd.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+require('lspconfig').jsonls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+require('lspconfig').pyright.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
