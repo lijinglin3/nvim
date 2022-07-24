@@ -11,8 +11,8 @@
 ## Installation
 
 ```bash
-brew install neovim sqlite fd ripgrep fzf			# MacOS
-sudo apt install neovim libsqlite3-dev fd-find ripgrep fzf	# ubuntu/debian
+brew install neovim sqlite fd ripgrep fzf			# for macos
+sudo apt install neovim libsqlite3-dev fd-find ripgrep fzf	# for ubuntu/debian
 
 git clone https://github.com/lijinglin3/nvim ~/.config/nvim	# clone repo
 nvim +PackerSync						# init nvim
