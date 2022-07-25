@@ -18,12 +18,10 @@ cmp.setup({
 			end
 		end, { 'i', 's' }),
 	}),
-	sources = cmp.config.sources({
-		{name = 'nvim_lsp'},
-	}, {
-		{name = 'buffer'},
-		{name = 'path'},
-	})
+	sources = cmp.config.sources(
+		{ { name = 'nvim_lsp' } },
+		{ { name = 'buffer' }, { name = 'path' } }
+	)
 })
 
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }

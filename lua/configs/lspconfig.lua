@@ -1,7 +1,7 @@
 local builtin = require('telescope.builtin')
 
-local on_attach = function(client, bufnr)
-	local opts = { noremap=true, silent=true, buffer=bufnr }
+local on_attach = function(_, bufnr)
+	local opts = { noremap = true, silent = true, buffer = bufnr }
 	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
 	vim.keymap.set('n', 'gk', vim.lsp.buf.hover, opts)
 	vim.keymap.set('n', 'gK', vim.lsp.buf.signature_help, opts)
@@ -17,7 +17,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', 'gi', builtin.lsp_implementations, opts)
 	vim.keymap.set('n', 'gr', builtin.lsp_references, opts)
 	vim.keymap.set('n', 'gE', builtin.diagnostics, opts)
-	vim.keymap.set('n', 'ge', function() builtin.diagnostics({bufnr = 0}) end, opts)
+	vim.keymap.set('n', 'ge', function() builtin.diagnostics { bufnr = 0 } end, opts)
 
 	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 end
@@ -59,4 +59,16 @@ require('lspconfig').jsonls.setup({
 require('lspconfig').pyright.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+})
+
+require('lspconfig').sumneko_lua.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = { Lua = {
+		format = { enable = true, defaultConfig = { indent_style = "tab" } },
+		runtime = { version = 'LuaJIT' },
+		diagnostics = { globals = { 'vim' }, neededFileStatus = { ["codestyle-check"] = "Any" } },
+		workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+	},
+	}
 })

@@ -5,7 +5,7 @@ return require('packer').startup({
 		}
 		use {
 			'nvim-neo-tree/neo-tree.nvim', config = [[require('configs.neo-tree')]],
-			requires = {'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'MunifTanjim/nui.nvim'}
+			requires = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'MunifTanjim/nui.nvim' }
 		}
 		use {
 			'nvim-lualine/lualine.nvim', config = [[require('configs.lualine')]],
@@ -24,12 +24,12 @@ return require('packer').startup({
 				'nvim-telescope/telescope-frecency.nvim', 'tami5/sqlite.lua',
 				'nvim-telescope/telescope-dap.nvim', 'mfussenegger/nvim-dap',
 				'nvim-telescope/telescope-project.nvim', 'nvim-telescope/telescope-file-browser.nvim',
-				{'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+				{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
 			}
 		}
 		use {
 			'hrsh7th/nvim-cmp', config = [[require('configs.cmp')]],
-			requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-cmdline'}
+			requires = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-cmdline' }
 		}
 		use {
 			'neovim/nvim-lspconfig', config = [[require('configs.lspconfig')]]
@@ -39,7 +39,7 @@ return require('packer').startup({
 		}
 		use {
 			'ray-x/go.nvim', config = [[require('configs.go')]],
-			requires = {'rcarriga/nvim-dap-ui', 'mfussenegger/nvim-dap'}
+			requires = { 'rcarriga/nvim-dap-ui', 'mfussenegger/nvim-dap' }
 		}
 		use {
 			'wbthomason/packer.nvim'

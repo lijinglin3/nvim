@@ -9,7 +9,7 @@ end)()
 require('telescope').setup({
 	defaults = {
 		sorting_strategy = 'ascending',
-		layout_config = {horizontal = {prompt_position = 'top'}},
+		layout_config = { horizontal = { prompt_position = 'top' } },
 		mappings = {
 			i = {
 				['<C-j>'] = require('telescope.actions').move_selection_next,
@@ -39,17 +39,21 @@ require('telescope').load_extension('project')
 require('telescope').load_extension('file_browser')
 require('telescope').load_extension('dap')
 
-local opts = {noremap = true}
-vim.api.nvim_set_keymap('n', '<leader>a', ':Telescope builtin<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>f', ':Telescope find_files<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>g', ':Telescope live_grep<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>b', ':Telescope buffers<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>F', ':Telescope frecency<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>p', ':Telescope project<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>l', ':Telescope file_browser<CR>', opts)
+local builtin = require('telescope.builtin')
+local extensions = require('telescope').extensions
+local opts = { noremap = true }
 
-vim.api.nvim_set_keymap('n', '<leader>dC', ':Telescope dap commands<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>dc', ':Telescope dap configurations<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>dl', ':Telescope dap list_breakpoints<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>dv', ':Telescope dap variables<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>df', ':Telescope dap frames<CR>', opts)
+vim.keymap.set('n', '<leader>a', builtin.builtin, opts)
+vim.keymap.set('n', '<leader>f', builtin.find_files, opts)
+vim.keymap.set('n', '<leader>g', builtin.live_grep, opts)
+vim.keymap.set('n', '<leader>b', builtin.buffers, opts)
+
+vim.keymap.set('n', '<leader>F', extensions.frecency.frecency, opts)
+vim.keymap.set('n', '<leader>l', extensions.file_browser.file_browser, opts)
+vim.keymap.set('n', '<leader>p', function() extensions.project.project { display_type = 'full' } end, opts)
+
+vim.keymap.set('n', '<leader>dC', extensions.dap.commands, opts)
+vim.keymap.set('n', '<leader>dc', extensions.dap.configurations, opts)
+vim.keymap.set('n', '<leader>dl', extensions.dap.list_breakpoints, opts)
+vim.keymap.set('n', '<leader>dv', extensions.dap.variables, opts)
+vim.keymap.set('n', '<leader>df', extensions.dap.frames, opts)
