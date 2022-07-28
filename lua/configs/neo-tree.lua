@@ -9,5 +9,5 @@ require('neo-tree').setup({
 
 local opts = { noremap = true }
 
-vim.keymap.set('n', 'tt', ':NeoTreeShowToggle<CR>', opts)
-vim.keymap.set('n', 'tf', ':NeoTreeFocus<CR>', opts)
+vim.keymap.set('n', '<leader>t', ':NeoTreeShowToggle<CR>', opts)
+vim.keymap.set('n', '<leader>T', ':NeoTreeFocus<CR>', opts)

@@ -23,7 +23,6 @@ local on_attach = function(_, bufnr)
 end
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-capabilities.textDocument.completion.completionItem.snippetSupport = false
 
 require('lspconfig').gopls.setup({
 	on_attach = on_attach,
@@ -46,12 +45,19 @@ require('lspconfig').gopls.setup({
 	},
 })
 
-require('lspconfig').clangd.setup({
+require('lspconfig').rust_analyzer.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	settings = {
+		['rust-analyzer'] = {
+			imports = { granularity = { group = 'module' }, prefix = 'self' },
+			cargo = { buildScripts = { enable = true } },
+			procMacro = { enable = true },
+		}
+	}
 })
 
-require('lspconfig').jsonls.setup({
+require('lspconfig').clangd.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
@@ -61,14 +67,20 @@ require('lspconfig').pyright.setup({
 	capabilities = capabilities,
 })
 
+require('lspconfig').jsonls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
 require('lspconfig').sumneko_lua.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-	settings = { Lua = {
-		format = { enable = true, defaultConfig = { indent_style = "tab" } },
-		runtime = { version = 'LuaJIT' },
-		diagnostics = { globals = { 'vim' }, neededFileStatus = { ["codestyle-check"] = "Any" } },
-		workspace = { library = vim.api.nvim_get_runtime_file("", true) },
-	},
+	settings = {
+		Lua = {
+			format = { enable = true, defaultConfig = { indent_style = 'tab' } },
+			runtime = { version = 'LuaJIT' },
+			diagnostics = { globals = { 'vim' }, neededFileStatus = { ['codestyle-check'] = 'Any' } },
+			workspace = { library = vim.api.nvim_get_runtime_file('', true) },
+		}
 	}
 })
