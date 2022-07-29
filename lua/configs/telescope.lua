@@ -8,6 +8,10 @@ end)()
 
 require('telescope').setup({
 	defaults = {
+		vimgrep_arguments = {
+			'rg', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '--trim',
+			'--no-ignore', '--hidden', '--glob', '!.git', '--ignore-file', '.ignore',
+		},
 		sorting_strategy = 'ascending',
 		layout_config = { horizontal = { prompt_position = 'top' } },
 		mappings = {
@@ -21,7 +25,7 @@ require('telescope').setup({
 		find_files = {
 			find_command = {
 				find_command, '--type', 'file', '--type', 'symlink', '--strip-cwd-prefix',
-				'--unrestricted', '--exclude', '.git', '--ignore-file', '.fdignore',
+				'--unrestricted', '--exclude', '.git', '--ignore-file', '.ignore',
 			}
 		}
 	},
