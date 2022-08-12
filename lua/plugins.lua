@@ -7,8 +7,8 @@ return require('packer').startup({
 			'phaazon/hop.nvim', config = [[require('configs.hop')]]
 		}
 		use {
-			'nvim-neo-tree/neo-tree.nvim', config = [[require('configs.neo-tree')]],
-			requires = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'MunifTanjim/nui.nvim' }
+			'kyazdani42/nvim-tree.lua', config = [[require('configs.nvim-tree')]],
+			requires = 'kyazdani42/nvim-web-devicons',
 		}
 		use {
 			'nvim-lualine/lualine.nvim', config = [[require('configs.lualine')]],

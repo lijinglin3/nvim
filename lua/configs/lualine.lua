@@ -16,17 +16,7 @@ require('lualine').setup({
 		lualine_z = {}
 	},
 	tabline = {
-		lualine_a = {
-			{
-				'buffers', mode = 2,
-				filetype_names = {
-					['neo-tree'] = 'NeoTree',
-					TelescopePrompt = 'Telescope',
-					packer = 'Packer',
-					fzf = 'FZF',
-				}
-			},
-		}
+		lualine_a = { { 'buffers', mode = 2 } }
 	},
 	extensions = { 'neo-tree', 'nvim-dap-ui', 'quickfix', 'toggleterm' },
 })

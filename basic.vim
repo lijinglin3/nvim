@@ -85,10 +85,9 @@ endif
 
 let mapleader = "\<Space>"
 
+nnoremap <leader>e :e!<CR>
 nnoremap <leader>w :w!<CR>
 nnoremap <leader>q :q!<CR>
-nnoremap <leader>t :tabnew<CR>
-nnoremap <leader>c :tabclose<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
