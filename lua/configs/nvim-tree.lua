@@ -18,5 +18,8 @@ require('nvim-tree').setup({
 	},
 })
 
+local toggle = function() require('nvim-tree').toggle(false, true) end
+vim.api.nvim_create_autocmd('DirChanged', { callback = toggle })
+
 local opts = { noremap = true }
-vim.keymap.set('n', '<leader>t', function() require('nvim-tree').toggle(false, true) end, opts)
+vim.keymap.set('n', '<leader>t', toggle, opts)
