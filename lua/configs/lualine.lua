@@ -18,5 +18,5 @@ require('lualine').setup({
 	tabline = {
 		lualine_a = { { 'buffers', mode = 2 } }
 	},
-	extensions = { 'neo-tree', 'nvim-dap-ui', 'quickfix', 'toggleterm' },
+	extensions = { 'nvim-tree', 'nvim-dap-ui', 'quickfix', 'toggleterm' },
 })
