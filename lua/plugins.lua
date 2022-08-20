@@ -38,7 +38,8 @@ return require('packer').startup({
 			}
 		}
 		use {
-			'neovim/nvim-lspconfig', config = [[require('configs.lspconfig')]]
+			'neovim/nvim-lspconfig', config = [[require('configs.lspconfig')]],
+			requires = { 'jose-elias-alvarez/null-ls.nvim', 'nvim-lua/plenary.nvim' }
 		}
 		use {
 			'nvim-treesitter/nvim-treesitter', config = [[require('configs.treesitter')]]

@@ -1,7 +1,17 @@
 local lsp = require('lspconfig')
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local nls = require('null-ls')
+local builtins = nls.builtins
 
-local on_attach = function(_, bufnr)
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+local on_attach = function(client, bufnr)
+	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+
+	client.resolved_capabilities.document_formatting = true
+	client.resolved_capabilities.document_range_formatting = true
+
 	local builtin = require('telescope.builtin')
 	local ERROR = vim.diagnostic.severity.ERROR
 	local WARN = vim.diagnostic.severity.WARN
@@ -27,8 +37,6 @@ local on_attach = function(_, bufnr)
 	vim.keymap.set('n', 'ge', function() builtin.diagnostics { bufnr = 0, severity_limit = ERROR } end, opts)
 	vim.keymap.set('n', 'gW', function() builtin.diagnostics { severity_bound = WARN } end, opts)
 	vim.keymap.set('n', 'gw', function() builtin.diagnostics { bufnr = 0, severity_bound = WARN } end, opts)
-
-	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 end
 
 lsp.gopls.setup({
@@ -49,7 +57,7 @@ lsp.rust_analyzer.setup({
 	settings = {
 		['rust-analyzer'] = {
 			imports = { granularity = { group = 'module' }, prefix = 'self' },
-			cargo = { buildScripts = { enable = true } },
+			cargo = { allFeatures = true, buildScripts = { enable = true } },
 			procMacro = { enable = true },
 		}
 	}
@@ -59,14 +67,47 @@ lsp.clangd.setup({ on_attach = on_attach, capabilities = capabilities })
 
 lsp.pyright.setup({ on_attach = on_attach, capabilities = capabilities })
 
-lsp.jsonls.setup({ on_attach = on_attach, capabilities = capabilities })
-
 lsp.sumneko_lua.setup({
 	on_attach = on_attach, capabilities = capabilities,
 	settings = { Lua = {
 		format = { enable = true, defaultConfig = { indent_style = 'tab' } },
-		runtime = { version = 'LuaJIT' },
+		runtime = { version = 'LuaJIT', path = vim.split(package.path, ";") },
 		diagnostics = { globals = { 'vim' }, neededFileStatus = { ['codestyle-check'] = 'Any' } },
 		workspace = { library = vim.api.nvim_get_runtime_file('', true) },
 	} }
+})
+
+local sources = {
+	builtins.code_actions.refactoring,
+	builtins.code_actions.shellcheck,
+	builtins.code_actions.gitsigns,
+	builtins.code_actions.proselint,
+
+	builtins.diagnostics.actionlint,
+	builtins.diagnostics.ansiblelint,
+	builtins.diagnostics.buf,
+	builtins.diagnostics.codespell,
+	builtins.diagnostics.editorconfig_checker,
+	builtins.diagnostics.golangci_lint,
+	builtins.diagnostics.jsonlint,
+	builtins.diagnostics.markdownlint,
+	builtins.diagnostics.mypy,
+	builtins.diagnostics.proselint,
+	builtins.diagnostics.shellcheck,
+	builtins.diagnostics.yamllint,
+	builtins.diagnostics.zsh,
+
+	builtins.formatting.buf,
+	builtins.formatting.cmake_format,
+	builtins.formatting.jq,
+	builtins.formatting.markdownlint,
+	builtins.formatting.prettier,
+	builtins.formatting.shfmt,
+
+	builtins.hover.dictionary,
+}
+
+nls.setup({
+	on_attach = on_attach, sources = sources,
+	diagnostics_format = '[#{c}] #{m} (#{s})'
 })
