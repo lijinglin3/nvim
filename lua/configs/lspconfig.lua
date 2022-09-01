@@ -86,8 +86,6 @@ local sources = {
 	builtins.diagnostics.actionlint,
 	builtins.diagnostics.ansiblelint,
 	builtins.diagnostics.buf,
-	builtins.diagnostics.codespell,
-	builtins.diagnostics.editorconfig_checker,
 	builtins.diagnostics.golangci_lint,
 	builtins.diagnostics.jsonlint,
 	builtins.diagnostics.markdownlint,
