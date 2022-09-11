@@ -18,6 +18,9 @@ return require('packer').startup({
 			'akinsho/toggleterm.nvim', config = function() require('configs.toggleterm') end
 		}
 		use {
+			'lukas-reineke/indent-blankline.nvim', config = function() require('configs.indent-blankline') end
+		}
+		use {
 			'anuvyklack/pretty-fold.nvim', config = function() require('configs.pretty-fold') end
 		}
 		use {
@@ -27,9 +30,9 @@ return require('packer').startup({
 			'nvim-telescope/telescope.nvim', config = function() require('configs.telescope') end,
 			requires = {
 				'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'nvim-treesitter/nvim-treesitter',
+				'nvim-telescope/telescope-project.nvim', 'nvim-telescope/telescope-file-browser.nvim',
 				'nvim-telescope/telescope-frecency.nvim', 'tami5/sqlite.lua',
 				'nvim-telescope/telescope-dap.nvim', 'mfussenegger/nvim-dap',
-				'nvim-telescope/telescope-project.nvim', 'nvim-telescope/telescope-file-browser.nvim',
 				{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
 			}
 		}
@@ -56,7 +59,7 @@ return require('packer').startup({
 		}
 	end,
 	config = {
-		max_jobs = 16,
+		max_jobs = 16, compile_on_sync = true,
 		compile_path = require('packer.util').join_paths(vim.fn.stdpath('data'), 'site', 'lua', 'packer_compiled.lua'),
 	}
 })
