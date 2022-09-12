@@ -26,7 +26,7 @@ set laststatus=2 " 是否显示状态栏。0 表示不显示，1 表示只在多
 set lazyredraw " Don't redraw while executing macros (good performance config)
 set linebreak " 只有遇到指定的符号（比如空格、连词号和其他标点符号），才发生折行
 set list
-set listchars=eol:¶,tab:──▶,trail:·,nbsp:×,precedes:«,extends:»
+set listchars=eol:$,tab:-->,trail:·,nbsp:×,precedes:<,extends:>
 set magic " For regular expressions turn magic on
 set mouse-=a " 禁止使用鼠标
 set nobackup " 不创建备份文件。默认情况下，文件保存时，会额外创建一个备份文件，它的文件名是在原文件名的末尾，再添加一个波浪号（〜）
