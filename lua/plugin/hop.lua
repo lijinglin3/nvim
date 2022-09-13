@@ -4,7 +4,7 @@ local AFTER = hint.HintDirection.AFTER_CURSOR
 local BEFORE = hint.HintDirection.BEFORE_CURSOR
 
 local scope = function(direction)
-	return { direction = direction, current_line_only = true }
+    return { direction = direction, current_line_only = true }
 end
 
 hop.setup()
