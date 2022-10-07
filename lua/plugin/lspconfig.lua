@@ -9,8 +9,8 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-    client.resolved_capabilities.document_formatting = true
-    client.resolved_capabilities.document_range_formatting = true
+    client.server_capabilities.document_formatting = true
+    client.server_capabilities.document_range_formatting = true
 
     local builtin = require('telescope.builtin')
     local ERROR = vim.diagnostic.severity.ERROR
@@ -22,7 +22,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', 'gK', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('n', 'gR', vim.lsp.buf.rename, opts)
     vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', 'gf', vim.lsp.buf.formatting, opts)
+    vim.keymap.set('n', 'gf', vim.lsp.buf.format, opts)
 
     vim.keymap.set('n', 'gs', builtin.lsp_document_symbols, opts)
     vim.keymap.set('n', 'gS', builtin.lsp_dynamic_workspace_symbols, opts)
