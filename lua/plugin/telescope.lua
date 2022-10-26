@@ -1,6 +1,7 @@
 local telescope = require('telescope')
 local extensions = telescope.extensions
 local builtin = require('telescope.builtin')
+local layout = require("telescope.actions.layout")
 local opts = { noremap = true }
 
 local open_project = function()
@@ -17,20 +18,33 @@ end)()
 
 telescope.setup({
     defaults = {
+        sorting_strategy = 'ascending',
+        layout_strategy = 'vertical',
+        layout_config = { vertical = { prompt_position = 'top', mirror = true } },
+        path_display = { truncate = 70 },
+        dynamic_preview_title = true,
+        preview = { hide_on_startup = true },
         vimgrep_arguments = {
             'rg', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '--trim',
             '--no-ignore', '--hidden', '--glob', '!.git', '--ignore-file', '.ignore',
         },
-        sorting_strategy = 'ascending',
-        layout_config = { horizontal = { prompt_position = 'top' } },
         mappings = {
             i = {
                 ['<C-j>'] = require('telescope.actions').move_selection_next,
                 ['<C-k>'] = require('telescope.actions').move_selection_previous,
+                ['<C-p>'] = layout.toggle_preview,
             }
         }
     },
     pickers = {
+        diagnostics = {
+            fname_width = 50,
+            show_line = true,
+        },
+        lsp_references = {
+            fname_width = 50,
+            show_line = true,
+        },
         find_files = {
             find_command = {
                 find_command, '--type', 'file', '--type', 'symlink', '--strip-cwd-prefix',
