@@ -24,10 +24,6 @@ telescope.setup({
         path_display = { truncate = 70 },
         dynamic_preview_title = true,
         preview = { hide_on_startup = true },
-        vimgrep_arguments = {
-            'rg', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '--trim',
-            '--no-ignore', '--hidden', '--glob', '!.git', '--ignore-file', '.ignore',
-        },
         mappings = {
             i = {
                 ['<C-j>'] = require('telescope.actions').move_selection_next,
@@ -37,14 +33,6 @@ telescope.setup({
         }
     },
     pickers = {
-        diagnostics = {
-            fname_width = 50,
-            show_line = true,
-        },
-        lsp_references = {
-            fname_width = 50,
-            show_line = true,
-        },
         find_files = {
             find_command = {
                 find_command, '--type', 'file', '--type', 'symlink', '--strip-cwd-prefix',
@@ -57,19 +45,20 @@ telescope.setup({
     },
 })
 
-telescope.load_extension('fzf')
+telescope.load_extension('live_grep_args')
+telescope.load_extension('file_browser')
 telescope.load_extension('frecency')
 telescope.load_extension('project')
-telescope.load_extension('file_browser')
+telescope.load_extension('fzf')
 telescope.load_extension('dap')
 
 vim.keymap.set('n', '<leader>a', builtin.builtin, opts)
 vim.keymap.set('n', '<leader>f', builtin.find_files, opts)
-vim.keymap.set('n', '<leader>g', builtin.live_grep, opts)
 vim.keymap.set('n', '<leader>b', builtin.buffers, opts)
 vim.keymap.set('n', '<leader>s', builtin.git_status, opts)
 
 vim.keymap.set('n', '<leader>p', open_project, opts)
+vim.keymap.set('n', '<leader>g', extensions.live_grep_args.live_grep_args, opts)
 vim.keymap.set('n', '<leader>F', extensions.frecency.frecency, opts)
 vim.keymap.set('n', '<leader>l', extensions.file_browser.file_browser, opts)
 
