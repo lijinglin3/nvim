@@ -22,18 +22,18 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', 'gf', vim.lsp.buf.format, opts)
 
-    vim.keymap.set('n', 'gs', function() builtin.lsp_document_symbols { fname_width = 100 } end, opts)
-    vim.keymap.set('n', 'gS', function() builtin.lsp_dynamic_workspace_symbols { fname_width = 100 } end, opts)
-    vim.keymap.set('n', 'gd', function() builtin.lsp_definitions { fname_width = 100 } end, opts)
-    vim.keymap.set('n', 'gt', function() builtin.lsp_type_definitions { fname_width = 100 } end, opts)
+    vim.keymap.set('n', 'gs', function() builtin.lsp_document_symbols {} end, opts)
+    vim.keymap.set('n', 'gS', function() builtin.lsp_dynamic_workspace_symbols { fname_width = 60 } end, opts)
+    vim.keymap.set('n', 'gd', function() builtin.lsp_definitions {} end, opts)
+    vim.keymap.set('n', 'gt', function() builtin.lsp_type_definitions {} end, opts)
     vim.keymap.set('n', 'go', function() builtin.lsp_outgoing_calls { fname_width = 100 } end, opts)
     vim.keymap.set('n', 'gi', function() builtin.lsp_incoming_calls { fname_width = 100 } end, opts)
-    vim.keymap.set('n', 'gI', function() builtin.lsp_implementations { fname_width = 100 } end, opts)
-    vim.keymap.set('n', 'gr', function() builtin.lsp_references { fname_width = 100 } end, opts)
+    vim.keymap.set('n', 'gI', function() builtin.lsp_implementations { fname_width = 60 } end, opts)
+    vim.keymap.set('n', 'gr', function() builtin.lsp_references { fname_width = 60 } end, opts)
 
-    vim.keymap.set('n', 'gE', function() builtin.diagnostics { line_width = 100, severity_limit = ERROR } end, opts)
+    vim.keymap.set('n', 'gE', function() builtin.diagnostics { line_width = 80, severity_limit = ERROR } end, opts)
     vim.keymap.set('n', 'ge', function() builtin.diagnostics { bufnr = 0, severity_limit = ERROR } end, opts)
-    vim.keymap.set('n', 'gW', function() builtin.diagnostics { line_width = 100, severity_bound = WARN } end, opts)
+    vim.keymap.set('n', 'gW', function() builtin.diagnostics { line_width = 80, severity_bound = WARN } end, opts)
     vim.keymap.set('n', 'gw', function() builtin.diagnostics { bufnr = 0, severity_bound = WARN } end, opts)
 end
 
@@ -107,3 +107,7 @@ nls.setup({
     on_attach = on_attach, sources = sources,
     diagnostics_format = '[#{c}] #{m} (#{s})'
 })
+
+vim.api.nvim_create_autocmd('DirChanged', { callback = function()
+    vim.lsp.stop_client(vim.lsp.get_active_clients())
+end })

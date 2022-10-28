@@ -17,4 +17,4 @@ tree.setup({
 })
 
 vim.keymap.set('n', '<leader>t', function() tree.toggle(true, true) end, { noremap = true })
-vim.api.nvim_create_autocmd('DirChanged', { callback = function() tree.open() vim.cmd('wincmd p') end })
+vim.api.nvim_create_autocmd('DirChanged', { callback = function() vim.cmd('%bd') tree.open() vim.cmd('wincmd p') end })

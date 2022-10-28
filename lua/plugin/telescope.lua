@@ -53,10 +53,7 @@ telescope.setup({
         }
     },
     extensions = {
-        fzf = {
-            override_generic_sorter = true,
-            override_file_sorter = true,
-        },
+        fzf = { override_generic_sorter = true, override_file_sorter = true },
     },
 })
 
