@@ -8,22 +8,23 @@ local open_project = function()
     extensions.project.project { display_type = 'full' }
 end
 
-local find_command = (function()
+local find_command = function()
     if 1 == vim.fn.executable 'fd' then
         return 'fd'
     elseif 1 == vim.fn.executable 'fdfind' then
         return 'fdfind'
     end
-end)()
+end
+
+local find = find_command()
 
 telescope.setup({
     defaults = {
         sorting_strategy = 'ascending',
         layout_strategy = 'vertical',
-        layout_config = { vertical = { prompt_position = 'top', mirror = true } },
-        path_display = { truncate = 70 },
+        layout_config = { vertical = { prompt_position = 'top', width = 0.9, mirror = true } },
+        path_display = { truncate = 100 },
         dynamic_preview_title = true,
-        preview = { hide_on_startup = true },
         mappings = {
             i = {
                 ['<C-j>'] = require('telescope.actions').move_selection_next,
@@ -35,13 +36,14 @@ telescope.setup({
     pickers = {
         find_files = {
             find_command = {
-                find_command, '--type', 'file', '--type', 'symlink', '--strip-cwd-prefix',
+                find, '--type', 'file', '--type', 'symlink', '--strip-cwd-prefix',
                 '--unrestricted', '--exclude', '.git', '--ignore-file', '.ignore',
             }
         }
     },
     extensions = {
         fzf = { override_generic_sorter = true, override_file_sorter = true },
+        project = { hidden_files = true, sync_with_nvim_tree = true },
     },
 })
 
@@ -55,7 +57,7 @@ telescope.load_extension('dap')
 vim.keymap.set('n', '<leader>a', builtin.builtin, opts)
 vim.keymap.set('n', '<leader>f', builtin.find_files, opts)
 vim.keymap.set('n', '<leader>b', builtin.buffers, opts)
-vim.keymap.set('n', '<leader>s', builtin.git_status, opts)
+vim.keymap.set('n', '<leader>d', builtin.git_status, opts)
 
 vim.keymap.set('n', '<leader>p', open_project, opts)
 vim.keymap.set('n', '<leader>g', extensions.live_grep_args.live_grep_args, opts)
@@ -68,12 +70,21 @@ vim.keymap.set('n', '<leader>dl', extensions.dap.list_breakpoints, opts)
 vim.keymap.set('n', '<leader>dv', extensions.dap.variables, opts)
 vim.keymap.set('n', '<leader>df', extensions.dap.frames, opts)
 
-vim.api.nvim_create_autocmd('VimEnter', { callback = function()
-    if vim.fn.argc() == 0 then open_project() end
-end })
-
-vim.api.nvim_create_autocmd('VimEnter', { callback = function()
-    if vim.fn.argc() == 1 and vim.fn.isdirectory(vim.fn.argv()[1]) ~= 0 then
-        builtin.find_files({ cwd = vim.fn.argv()[1] })
+-- https://github.com/nvim-telescope/telescope.nvim/issues/559
+vim.api.nvim_create_autocmd('BufRead', {
+    callback = function()
+        vim.api.nvim_create_autocmd('BufWinEnter', { once = true, command = 'normal! zx' })
     end
-end })
+})
+
+vim.api.nvim_create_autocmd('VimEnter', {
+    callback = function() if vim.fn.argc() == 0 then open_project() end end
+})
+
+vim.api.nvim_create_autocmd('VimEnter', {
+    callback = function()
+        if vim.fn.argc() == 1 and vim.fn.isdirectory(vim.fn.argv()[1]) ~= 0 then
+            builtin.find_files({ cwd = vim.fn.argv()[1] })
+        end
+    end
+})

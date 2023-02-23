@@ -1,5 +1,8 @@
 require('nvim-treesitter.configs').setup({
-    ensure_installed = { 'c', 'cpp', 'go', 'json', 'lua', 'python', 'rust' },
+    ensure_installed = {
+        'vim', 'lua', 'go', 'gomod', 'gosum', 'rust', 'c', 'cpp', 'python', 'bash',
+        'json', 'yaml', 'diff', 'dockerfile', 'sql'
+    },
     sync_install = true,
     highlight = { enable = true },
     incremental_selection = { enable = true },
@@ -8,13 +11,3 @@ require('nvim-treesitter.configs').setup({
 
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-
--- https://github.com/nvim-telescope/telescope.nvim/issues/559
-vim.api.nvim_create_autocmd('BufRead', {
-    callback = function()
-        vim.api.nvim_create_autocmd('BufWinEnter', {
-            once = true,
-            command = 'normal! zx'
-        })
-    end
-})
