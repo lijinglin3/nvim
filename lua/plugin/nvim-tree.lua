@@ -1,11 +1,13 @@
 local tree = require('nvim-tree')
+local api = require('nvim-tree.api')
 
 tree.setup({
     sync_root_with_cwd = true,
     reload_on_bufenter = true,
     update_focused_file = { enable = true },
     diagnostics = {
-        enable = true, show_on_dirs = true,
+        enable = true,
+        show_on_dirs = true,
         severity = { min = vim.diagnostic.severity.ERROR }
     },
     git = { ignore = false },
@@ -19,4 +21,4 @@ tree.setup({
     },
 })
 
-vim.keymap.set('n', '<leader>t', function() tree.toggle(true, true) end, { noremap = true })
+vim.keymap.set('n', '<leader>t', function() api.tree.toggle(true, true) end, { noremap = true })
