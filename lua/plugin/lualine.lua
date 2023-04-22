@@ -1,28 +1,20 @@
 require('lualine').setup({
     options = { globalstatus = true },
+    tabline = {
+        lualine_a = { 'hostname' },
+        lualine_b = { { 'buffers', show_filename_only = false, mode = 2 } },
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
+    },
     sections = {
         lualine_a = { 'mode' },
         lualine_b = { 'branch', 'diff', 'diagnostics' },
         lualine_c = { { 'filename', newfile_status = true, path = 3 } },
-        lualine_x = { 'searchcount' },
-        lualine_y = { 'encoding', 'fileformat', 'filetype' },
+        lualine_x = { 'searchcount', 'selectioncount' },
+        lualine_y = { 'encoding', 'fileformat', 'filetype', 'filesize' },
         lualine_z = { 'progress', 'location' },
-    },
-    inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = { 'filename' },
-        lualine_x = { 'location' },
-        lualine_y = {},
-        lualine_z = {}
-    },
-    tabline = {
-        lualine_a = { { 'buffers', show_filename_only = false, mode = 2 } },
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = { { 'windows', mode = 2 } },
-        lualine_y = { { 'tabs', mode = 2 } },
-        lualine_z = { 'hostname' },
     },
     extensions = { 'nvim-tree', 'nvim-dap-ui', 'quickfix', 'toggleterm' },
 })
