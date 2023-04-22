@@ -21,4 +21,4 @@ tree.setup({
     },
 })
 
-vim.keymap.set('n', '<leader>t', function() api.tree.toggle(true, true) end, { noremap = true })
+vim.keymap.set('n', '<leader>t', function() api.tree.toggle() end, { noremap = true })
