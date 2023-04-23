@@ -8,7 +8,7 @@ local WARN = vim.diagnostic.severity.WARN
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local on_attach = function(client, bufnr)
-    vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     client.server_capabilities.document_formatting = true
     client.server_capabilities.document_range_formatting = true
@@ -46,10 +46,17 @@ lsp.gopls.setup({
     settings = {
         gopls = {
             analyses = {
-                fieldalignment = true, nilness = true, shadow = true,
-                unusedparams = true, unusedwrite = true, useany = true, unusedvariable = true
+                fieldalignment = true,
+                nilness = true,
+                shadow = true,
+                unusedparams = true,
+                unusedwrite = true,
+                useany = true,
+                unusedvariable = true
             },
-            allExperiments = true, staticcheck = true, gofumpt = true,
+            allExperiments = true,
+            staticcheck = true,
+            gofumpt = true,
         },
     },
 })
@@ -73,12 +80,14 @@ lsp.pyright.setup({ on_attach = on_attach, capabilities = capabilities })
 lsp.lua_ls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
-    settings = { Lua = {
-        format = { enable = true, defaultConfig = { indent_style = 'space' } },
-        runtime = { version = 'LuaJIT', path = vim.split(package.path, ";") },
-        diagnostics = { globals = { 'vim' }, neededFileStatus = { ['codestyle-check'] = 'Any' } },
-        workspace = { library = vim.api.nvim_get_runtime_file('', true) },
-    } }
+    settings = {
+        Lua = {
+            format = { enable = true, defaultConfig = { indent_style = 'space' } },
+            runtime = { version = 'LuaJIT', path = vim.split(package.path, ';') },
+            diagnostics = { globals = { 'vim' }, neededFileStatus = { ['codestyle-check'] = 'Any' } },
+            workspace = { library = vim.api.nvim_get_runtime_file('', true) },
+        }
+    }
 })
 
 local sources = {

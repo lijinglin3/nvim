@@ -4,7 +4,7 @@ require('packer').startup({
             'wbthomason/packer.nvim'
         }
         use {
-            'sainnhe/gruvbox-material', config = function() require('plugin.gruvbox') end
+            'sainnhe/gruvbox-material', config = function() vim.cmd 'colorscheme gruvbox-material' end
         }
         use {
             'phaazon/hop.nvim', config = function() require('plugin.hop') end
@@ -32,12 +32,18 @@ require('packer').startup({
         use {
             'nvim-telescope/telescope.nvim', config = function() require('plugin.telescope') end,
             requires = {
-                'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'nvim-treesitter/nvim-treesitter',
-                'nvim-telescope/telescope-project.nvim', 'nvim-telescope/telescope-file-browser.nvim',
+                { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+                'nvim-telescope/telescope-project.nvim',
+                'nvim-telescope/telescope-file-browser.nvim',
                 'nvim-telescope/telescope-live-grep-args.nvim',
                 'nvim-telescope/telescope-frecency.nvim', 'tami5/sqlite.lua',
                 'nvim-telescope/telescope-dap.nvim', 'mfussenegger/nvim-dap',
-                { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+                'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons',
+                {
+                    'nvim-treesitter/nvim-treesitter',
+                    config = function() require('plugin.treesitter') end,
+                    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end
+                },
             }
         }
         use {
@@ -52,15 +58,17 @@ require('packer').startup({
             requires = { 'jose-elias-alvarez/null-ls.nvim', 'nvim-lua/plenary.nvim' }
         }
         use {
-            'nvim-treesitter/nvim-treesitter', config = function() require('plugin.treesitter') end
+            'nvim-treesitter/nvim-treesitter', config = function() require('plugin.treesitter') end,
+            run = function() require('nvim-treesitter.install').update({ with_sync = true }) end
         }
         use {
-            'ray-x/go.nvim', config = function() require('plugin.go') end,
+            'ray-x/go.nvim', config = function() require('plugin.go') end, ft = { 'go', 'gomod', 'gosum' },
             requires = { 'rcarriga/nvim-dap-ui', 'mfussenegger/nvim-dap' }
         }
     end,
     config = {
-        max_jobs = 8, compile_on_sync = true,
+        max_jobs = 8,
+        compile_on_sync = true,
         compile_path = require('packer.util').join_paths(vim.fn.stdpath('data'), 'site', 'lua', 'packer_compiled.lua'),
     }
 })

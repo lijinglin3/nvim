@@ -1,17 +1,21 @@
 local cmp = require('cmp')
+local types = require('cmp.types')
+
+local disable = function(fallback)
+    cmp.close()
+    fallback()
+end
 
 cmp.setup({
     snippet = {
-        expand = function(args) vim.fn["vsnip#anonymous"](args.body) end
+        expand = function(args) vim.fn['vsnip#anonymous'](args.body) end
     },
     mapping = cmp.mapping.preset.insert({
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
-        ['<C-j>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then cmp.select_next_item() else fallback() end
-        end, { 'i', 's' }),
-        ['<C-k>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then cmp.select_prev_item() else fallback() end
-        end, { 'i', 's' }),
+        ['<Down>'] = cmp.mapping(disable, { 'i' }),
+        ['<Up>'] = cmp.mapping(disable, { 'i' }),
+        ['<C-CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<C-j>'] = { i = cmp.mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Insert }) },
+        ['<C-k>'] = { i = cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Insert }) },
     }),
     sources = cmp.config.sources(
         { { name = 'nvim_lsp' } },
