@@ -3,7 +3,6 @@ local extensions = telescope.extensions
 local builtin = require('telescope.builtin')
 local layout = require('telescope.actions.layout')
 local opts = { noremap = true }
-local utils = require('telescope._extensions.project.utils')
 
 local open_project = function()
     extensions.project.project { display_type = 'full' }
@@ -18,15 +17,6 @@ local find_command = function()
 end
 
 local find = find_command()
-
-local open_in_nvim_tree = function(project_path)
-    local tree = require('nvim-tree.api').tree
-    tree.change_root(project_path)
-    tree.open(project_path)
-    vim.cmd('wincmd p')
-end
-
-utils.open_in_nvim_tree = open_in_nvim_tree
 
 telescope.setup({
     defaults = {

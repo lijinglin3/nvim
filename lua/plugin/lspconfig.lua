@@ -101,7 +101,7 @@ local sources = {
     nb.diagnostics.buf,
     nb.diagnostics.golangci_lint,
     nb.diagnostics.jsonlint,
-    nb.diagnostics.markdownlint,
+    nb.diagnostics.markdownlint_cli2,
     nb.diagnostics.mypy,
     nb.diagnostics.proselint,
     nb.diagnostics.shellcheck,

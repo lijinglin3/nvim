@@ -20,6 +20,8 @@ setting.g = {
     loaded_netrwPlugin       = 1,
     loaded_netrwSettings     = 1,
     loaded_netrwFileHandlers = 1,
+    loaded_perl_provider     = 0,
+    loaded_ruby_provider     = 0,
 }
 
 setting.opt = {
