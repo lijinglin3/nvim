@@ -39,11 +39,7 @@ require('packer').startup({
                 'nvim-telescope/telescope-frecency.nvim', 'tami5/sqlite.lua',
                 'nvim-telescope/telescope-dap.nvim', 'mfussenegger/nvim-dap',
                 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons',
-                {
-                    'nvim-treesitter/nvim-treesitter',
-                    config = function() require('plugin.treesitter') end,
-                    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end
-                },
+                'nvim-treesitter/nvim-treesitter',
             }
         }
         use {
@@ -59,7 +55,7 @@ require('packer').startup({
         }
         use {
             'nvim-treesitter/nvim-treesitter', config = function() require('plugin.treesitter') end,
-            run = function() require('nvim-treesitter.install').update({ with_sync = true }) end
+            run = function() require('nvim-treesitter.install').update() end
         }
         use {
             'ray-x/go.nvim', config = function() require('plugin.go') end, ft = { 'go', 'gomod', 'gosum' },
