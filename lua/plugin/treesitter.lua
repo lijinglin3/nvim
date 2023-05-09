@@ -1,7 +1,7 @@
 require('nvim-treesitter.configs').setup({
     ensure_installed = {
-        'vim', 'lua', 'go', 'gomod', 'gosum', 'rust', 'c', 'cpp', 'python', 'bash',
-        'json', 'yaml', 'diff', 'dockerfile', 'sql'
+        'vim', 'vimdoc', 'query', 'json', 'yaml', 'diff', 'dockerfile', 'sql',
+        'lua', 'go', 'gomod', 'gosum', 'rust', 'c', 'cpp', 'python', 'bash',
     },
     sync_install = true,
     highlight = { enable = true },

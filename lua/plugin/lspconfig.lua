@@ -91,7 +91,6 @@ lsp.lua_ls.setup({
 })
 
 local sources = {
-    nb.code_actions.refactoring,
     nb.code_actions.shellcheck,
     nb.code_actions.gitsigns,
     nb.code_actions.proselint,
@@ -114,8 +113,6 @@ local sources = {
     nb.formatting.markdownlint,
     nb.formatting.prettier,
     nb.formatting.shfmt,
-
-    nb.hover.dictionary,
 }
 
 nls.setup({
