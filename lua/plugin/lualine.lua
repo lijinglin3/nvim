@@ -19,7 +19,7 @@ require('lualine').setup({
         lualine_b = { 'branch' },
         lualine_c = { { 'filename', newfile_status = true, path = 3 } },
         lualine_x = {},
-        lualine_y = { 'datetime', 'hostname' },
+        lualine_y = { { 'datetime', style = '%F %R %a W%V' }, 'hostname' },
         lualine_z = {},
     },
     inactive_sections = {
@@ -27,25 +27,35 @@ require('lualine').setup({
         lualine_b = { 'branch' },
         lualine_c = { { 'filename', newfile_status = true, path = 3 } },
         lualine_x = {},
-        lualine_y = { 'datetime', 'hostname' },
+        lualine_y = { { 'datetime', style = '%F %R %a W%V' }, 'hostname' },
         lualine_z = {},
     },
     winbar = {
         lualine_a = {},
-        lualine_b = { { 'filename', newfile_status = true, path = 3 }, 'location', 'progress' },
+        lualine_b = {
+            { 'filename', newfile_status = true, path = 3 },
+            'location', 'progress'
+        },
         lualine_c = {},
         lualine_x = {},
-        lualine_y = { 'searchcount', 'selectioncount', 'diff', 'diagnostics', 'encoding', 'filesize', 'fileformat',
-            { 'filetype', icon_only = true } },
+        lualine_y = {
+            'searchcount', 'selectioncount', 'diff', 'diagnostics',
+            'encoding', 'filesize', 'filetype', 'fileformat'
+        },
         lualine_z = {},
     },
     inactive_winbar = {
         lualine_a = {},
-        lualine_b = { { 'filename', newfile_status = true, path = 3 }, 'location', 'progress' },
+        lualine_b = {
+            { 'filename', newfile_status = true, path = 3 },
+            'location', 'progress'
+        },
         lualine_c = {},
         lualine_x = {},
-        lualine_y = { 'searchcount', 'selectioncount', 'diff', 'diagnostics', 'encoding', 'filesize', 'fileformat',
-            { 'filetype', icon_only = true } },
+        lualine_y = {
+            'searchcount', 'selectioncount', 'diff', 'diagnostics',
+            'encoding', 'filesize', 'filetype', 'fileformat'
+        },
         lualine_z = {},
     },
     extensions = { 'nvim-tree', 'nvim-dap-ui', 'quickfix', 'toggleterm' },
