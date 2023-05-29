@@ -1,8 +1,14 @@
 require('lualine').setup({
-    options = { globalstatus = true },
+    options = {
+        globalstatus = true,
+        disabled_filetypes = {
+            statusline = {},
+            winbar = { '', 'NvimTree' }
+        }
+    },
     tabline = {
-        lualine_a = { 'hostname' },
-        lualine_b = { { 'buffers', show_filename_only = false, mode = 2 } },
+        lualine_a = { { 'buffers', show_filename_only = false, mode = 2 } },
+        lualine_b = {},
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
@@ -10,11 +16,37 @@ require('lualine').setup({
     },
     sections = {
         lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_b = { 'branch' },
         lualine_c = { { 'filename', newfile_status = true, path = 3 } },
-        lualine_x = { 'searchcount', 'selectioncount' },
-        lualine_y = { 'encoding', 'fileformat', 'filetype', 'filesize' },
-        lualine_z = { 'progress', 'location' },
+        lualine_x = {},
+        lualine_y = { 'datetime', 'hostname' },
+        lualine_z = {},
+    },
+    inactive_sections = {
+        lualine_a = { 'mode' },
+        lualine_b = { 'branch' },
+        lualine_c = { { 'filename', newfile_status = true, path = 3 } },
+        lualine_x = {},
+        lualine_y = { 'datetime', 'hostname' },
+        lualine_z = {},
+    },
+    winbar = {
+        lualine_a = {},
+        lualine_b = { { 'filename', newfile_status = true, path = 3 }, 'location', 'progress' },
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = { 'searchcount', 'selectioncount', 'diff', 'diagnostics', 'encoding', 'filesize', 'fileformat',
+            { 'filetype', icon_only = true } },
+        lualine_z = {},
+    },
+    inactive_winbar = {
+        lualine_a = {},
+        lualine_b = { { 'filename', newfile_status = true, path = 3 }, 'location', 'progress' },
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = { 'searchcount', 'selectioncount', 'diff', 'diagnostics', 'encoding', 'filesize', 'fileformat',
+            { 'filetype', icon_only = true } },
+        lualine_z = {},
     },
     extensions = { 'nvim-tree', 'nvim-dap-ui', 'quickfix', 'toggleterm' },
 })
