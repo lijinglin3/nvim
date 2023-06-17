@@ -3,7 +3,7 @@ require('lualine').setup({
         globalstatus = true,
         disabled_filetypes = {
             statusline = {},
-            winbar = { '', 'NvimTree' }
+            winbar = { '', 'NvimTree', 'toggleterm' }
         }
     },
     tabline = {
