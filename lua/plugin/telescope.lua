@@ -20,10 +20,10 @@ local find = find_command()
 
 telescope.setup({
     defaults = {
+        wrap_results = true,
         sorting_strategy = 'ascending',
         layout_strategy = 'vertical',
         layout_config = { vertical = { prompt_position = 'top', width = 0.9, mirror = true } },
-        path_display = { truncate = 100 },
         dynamic_preview_title = true,
         mappings = {
             i = {

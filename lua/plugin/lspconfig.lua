@@ -14,7 +14,6 @@ local on_attach = function(client, bufnr)
     client.server_capabilities.document_range_formatting = true
 
     local opts = { noremap = true, silent = true, buffer = bufnr }
-    local width = { fname_width = 80, symbol_width = 60, symbol_type_width = 30, trim_text = true }
 
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gk', vim.lsp.buf.hover, opts)
@@ -26,18 +25,26 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', 'gd', tb.lsp_definitions, opts)
     vim.keymap.set('n', 'gt', tb.lsp_type_definitions, opts)
 
-    vim.keymap.set('n', 'gr', function() tb.lsp_references(width) end, opts)
-    vim.keymap.set('n', 'gI', function() tb.lsp_implementations(width) end, opts)
-    vim.keymap.set('n', 'gi', function() tb.lsp_incoming_calls(width) end, opts)
-    vim.keymap.set('n', 'go', function() tb.lsp_outgoing_calls(width) end, opts)
-
-    vim.keymap.set('n', 'gs', function() tb.lsp_document_symbols(width) end, opts)
-    vim.keymap.set('n', 'gS', function() tb.lsp_dynamic_workspace_symbols(width) end, opts)
-
-    vim.keymap.set('n', 'gE', function() tb.diagnostics { line_width = 100, severity_limit = ERROR } end, opts)
-    vim.keymap.set('n', 'ge', function() tb.diagnostics { bufnr = 0, severity_limit = ERROR } end, opts)
-    vim.keymap.set('n', 'gW', function() tb.diagnostics { line_width = 100, severity_bound = WARN } end, opts)
-    vim.keymap.set('n', 'gw', function() tb.diagnostics { bufnr = 0, severity_bound = WARN } end, opts)
+    vim.keymap.set('n', 'gr',
+        function() tb.lsp_references { fname_width = 0.6, trim_text = true } end, opts)
+    vim.keymap.set('n', 'gI',
+        function() tb.lsp_implementations { fname_width = 0.6, trim_text = true } end, opts)
+    vim.keymap.set('n', 'gi',
+        function() tb.lsp_incoming_calls { fname_width = 0.7 } end, opts)
+    vim.keymap.set('n', 'go',
+        function() tb.lsp_outgoing_calls { fname_width = 0.7 } end, opts)
+    vim.keymap.set('n', 'gs',
+        function() tb.lsp_document_symbols({ symbol_width = 0.9 }) end, opts)
+    vim.keymap.set('n', 'gS',
+        function() tb.lsp_dynamic_workspace_symbols({ fname_width = 0.5, symbol_width = 0.4 }) end, opts)
+    vim.keymap.set('n', 'gE',
+        function() tb.diagnostics { line_width = 0.7, severity_limit = ERROR } end, opts)
+    vim.keymap.set('n', 'ge',
+        function() tb.diagnostics { bufnr = 0, severity_limit = ERROR } end, opts)
+    vim.keymap.set('n', 'gW',
+        function() tb.diagnostics { line_width = 0.7, severity_bound = WARN } end, opts)
+    vim.keymap.set('n', 'gw',
+        function() tb.diagnostics { bufnr = 0, severity_bound = WARN } end, opts)
 end
 
 lsp.gopls.setup({
