@@ -46,7 +46,7 @@ require('lazy').setup({
     {
         'nvim-treesitter/nvim-treesitter',
         config = function() require('plugin.treesitter') end,
-        build = function() require('nvim-treesitter.install').update() end
+        build = function() require("nvim-treesitter.install").update({ with_sync = true }) end,
     },
     {
         'ray-x/go.nvim',
